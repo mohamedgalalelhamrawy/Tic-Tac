@@ -46,24 +46,34 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             // 3
-// ///////////////////////////////////////
+                  Spacer(flex: 1,),
             // 4
             Text(
-              result,
+             result,
               style: const TextStyle(
                 fontSize: 42,
               ),
             ),
             // 5
-            ElevatedButton.icon(
-                onPressed: () {
-                  activeplayer = "X";
-                  gameover = false;
-                  result = '';
-                  turns = 0;
-                },
-                icon: const Icon(Icons.replay),
-                label: const Text("Repeat The Game"))
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: ElevatedButton.icon(
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).splashColor),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ))),
+                  onPressed: () {
+                    // activeplayer = "X";
+                    // gameover = false;
+                    // result = '';
+                    // turns = 0;
+                  },
+                  icon: const Icon(Icons.replay,color: Colors.white,),
+                  label: const Text("Repeat The Game",style: TextStyle(color: Colors.white),)),
+            )
           ],
         ),
       ),
