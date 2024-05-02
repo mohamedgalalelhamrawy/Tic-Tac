@@ -74,10 +74,121 @@ class Game {
         emptycells.add(i);
       }
     }
-    Random random = Random();
-    int indexrandom = random.nextInt(emptycells.length);
+      // oooooooooooooooooooo هجوم
+     if (player.playero.Containsall(0, 1) && emptycells.contains(2)) {
+      index = 2;
+    } else if (player.playero.Containsall(3, 4) && emptycells.contains(5)) {
+      index = 5;
+    } else if (player.playero.Containsall(6, 7) && emptycells.contains(8)) {
+      index = 8;
+    } else if (player.playero.Containsall(0, 3) && emptycells.contains(6)) {
+      index = 6;
+    } else if (player.playero.Containsall(1, 4) && emptycells.contains(7)) {
+      index = 7;
+    } else if (player.playero.Containsall(2, 5) && emptycells.contains(8)) {
+      index = 8;
+    } else if (player.playero.Containsall(0, 4) && emptycells.contains(8)) {
+      index = 8;
+    } else if (player.playero.Containsall(2, 4) && emptycells.contains(6)) {
+      index = 6;
+    }
+    // 2
+    else if (player.playero.Containsall(0, 2) && emptycells.contains(1)) {
+      index = 1;
+    } else if (player.playero.Containsall(3, 5) && emptycells.contains(4)) {
+      index = 4;
+    } else if (player.playero.Containsall(6, 8) && emptycells.contains(7)) {
+      index = 7;
+    } else if (player.playero.Containsall(0, 6) && emptycells.contains(3)) {
+      index = 3;
+    } else if (player.playero.Containsall(1, 7) && emptycells.contains(4)) {
+      index = 4;
+    } else if (player.playero.Containsall(2, 8) && emptycells.contains(5)) {
+      index = 5;
+    } else if (player.playero.Containsall(0, 8) && emptycells.contains(4)) {
+      index = 4;
+    } else if (player.playero.Containsall(2, 6) && emptycells.contains(4)) {
+      index = 4;
+    }
+    // 3
+    else if (player.playero.Containsall(2, 1) && emptycells.contains(0)) {
+      index = 0;
+    } else if (player.playero.Containsall(5, 4) && emptycells.contains(3)) {
+      index = 3;
+    } else if (player.playero.Containsall(8, 7) && emptycells.contains(6)) {
+      index = 6;
+    } else if (player.playero.Containsall(6, 3) && emptycells.contains(0)) {
+      index = 0;
+    } else if (player.playero.Containsall(7, 4) && emptycells.contains(1)) {
+      index = 1;
+    } else if (player.playero.Containsall(8, 5) && emptycells.contains(2)) {
+      index = 2;
+    } else if (player.playero.Containsall(8, 4) && emptycells.contains(0)) {
+      index = 0;
+    } else if (player.playero.Containsall(6, 4) && emptycells.contains(2)) {
+      index = 2;
+    }
+    // 1
+    else if (player.playerX.Containsall(0, 1) && emptycells.contains(2)) {
+      index = 2;
+    } else if (player.playerX.Containsall(3, 4) && emptycells.contains(5)) {
+      index = 5;
+    } else if (player.playerX.Containsall(6, 7) && emptycells.contains(8)) {
+      index = 8;
+    } else if (player.playerX.Containsall(0, 3) && emptycells.contains(6)) {
+      index = 6;
+    } else if (player.playerX.Containsall(1, 4) && emptycells.contains(7)) {
+      index = 7;
+    } else if (player.playerX.Containsall(2, 5) && emptycells.contains(8)) {
+      index = 8;
+    } else if (player.playerX.Containsall(0, 4) && emptycells.contains(8)) {
+      index = 8;
+    } else if (player.playerX.Containsall(2, 4) && emptycells.contains(6)) {
+      index = 6;
+    }
+    // 2
+    else if (player.playerX.Containsall(0, 2) && emptycells.contains(1)) {
+      index = 1;
+    } else if (player.playerX.Containsall(3, 5) && emptycells.contains(4)) {
+      index = 4;
+    } else if (player.playerX.Containsall(6, 8) && emptycells.contains(7)) {
+      index = 7;
+    } else if (player.playerX.Containsall(0, 6) && emptycells.contains(3)) {
+      index = 3;
+    } else if (player.playerX.Containsall(1, 7) && emptycells.contains(4)) {
+      index = 4;
+    } else if (player.playerX.Containsall(2, 8) && emptycells.contains(5)) {
+      index = 5;
+    } else if (player.playerX.Containsall(0, 8) && emptycells.contains(4)) {
+      index = 4;
+    } else if (player.playerX.Containsall(2, 6) && emptycells.contains(4)) {
+      index = 4;
+    }
+    // 3
+    else if (player.playerX.Containsall(2, 1) && emptycells.contains(0)) {
+      index = 0;
+    } else if (player.playerX.Containsall(5, 4) && emptycells.contains(3)) {
+      index = 3;
+    } else if (player.playerX.Containsall(8, 7) && emptycells.contains(6)) {
+      index = 6;
+    } else if (player.playerX.Containsall(6, 3) && emptycells.contains(0)) {
+      index = 0;
+    } else if (player.playerX.Containsall(7, 4) && emptycells.contains(1)) {
+      index = 1;
+    } else if (player.playerX.Containsall(8, 5) && emptycells.contains(2)) {
+      index = 2;
+    } else if (player.playerX.Containsall(8, 4) && emptycells.contains(0)) {
+      index = 0;
+    } else if (player.playerX.Containsall(6, 4) && emptycells.contains(2)) {
+      index = 2;
+    }
 
-    index = emptycells[indexrandom];
+   else {
+      Random random = Random();
+      int indexrandom = random.nextInt(emptycells.length);
+      index = emptycells[indexrandom];
+    }
+
     playgame(index, activeplayer);
   }
 }
