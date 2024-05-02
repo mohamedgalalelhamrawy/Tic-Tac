@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tic_tac/logic_game.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,15 +55,23 @@ class _HomePageState extends State<HomePage> {
               children: List.generate(
                   9,
                   (index) => InkWell(
-                        onTap: gameover ? null : _ontap(index),
+                        onTap: gameover ? null : () { return _ontap(index);} ,
                         child: Container(
                           decoration: BoxDecoration(
                               color: Theme.of(context).shadowColor,
                               borderRadius: BorderRadius.circular(16)),
                           child: Center(
                             child: Text(
-                              "$activeplayer",
-                              style: TextStyle(color: Colors.blue , fontSize: 52),
+                              player.playerX.contains(index)
+                                  ? "X"
+                                  : player.playero.contains(index)
+                                      ? "O"
+                                      : " ",
+                              style: TextStyle(
+                                  color: player.playerX.contains(index)
+                                      ? Colors.blue
+                                      : Colors.pink,
+                                  fontSize: 52),
                             ),
                           ),
                         ),
@@ -89,10 +96,14 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(8),
                       ))),
                   onPressed: () {
-                    // activeplayer = "X";
-                    // gameover = false;
-                    // result = '';
-                    // turns = 0;
+                   setState(() {
+                      player.playerX = [];
+                    player.playero = [];
+                    activeplayer = "X";
+                    gameover = false;
+                    result = '';
+                    turns = 0;
+                   });
                   },
                   icon: const Icon(
                     Icons.replay,
@@ -110,6 +121,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   _ontap(int index) {
-    game.gameplay(index, activeplayer);
+    game.playgame(index, activeplayer);
+    setState(() {
+      activeplayer =  activeplayer == "X" ? "O" :"X";
+    });
   }
 }
