@@ -55,7 +55,11 @@ class _HomePageState extends State<HomePage> {
               children: List.generate(
                   9,
                   (index) => InkWell(
-                        onTap: gameover ? null : () { return _ontap(index);} ,
+                        onTap: gameover
+                            ? null
+                            : () {
+                                return _ontap(index);
+                              },
                         child: Container(
                           decoration: BoxDecoration(
                               color: Theme.of(context).shadowColor,
@@ -96,14 +100,14 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(8),
                       ))),
                   onPressed: () {
-                   setState(() {
+                    setState(() {
                       player.playerX = [];
-                    player.playero = [];
-                    activeplayer = "X";
-                    gameover = false;
-                    result = '';
-                    turns = 0;
-                   });
+                      player.playero = [];
+                      activeplayer = "X";
+                      gameover = false;
+                      result = '';
+                      turns = 0;
+                    });
                   },
                   icon: const Icon(
                     Icons.replay,
@@ -121,9 +125,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   _ontap(int index) {
-    game.playgame(index, activeplayer);
-    setState(() {
-      activeplayer =  activeplayer == "X" ? "O" :"X";
+    if (!(player.playerX.contains(index) || player.playero.contains(index))) {
+      game.playgame(index, activeplayer);
+      UpdateState();
+    }
+  }
+
+  void UpdateState() {
+    return setState(() {
+      activeplayer = activeplayer == "X" ? "O" : "X";
     });
   }
 }
