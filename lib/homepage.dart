@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
     if (!(player.playerX.contains(index) || player.playero.contains(index))) {
       game.playgame(index, activeplayer);
       UpdateState();
-      if (!iSswitch && !gameover) {
+      if (!iSswitch && !gameover && turns != 9) {
        await game.autoplay(activeplayer);
         UpdateState();
       }
@@ -138,6 +138,14 @@ class _HomePageState extends State<HomePage> {
   void UpdateState() {
     return setState(() {
       activeplayer = activeplayer == "X" ? "O" : "X";
+      turns ++ ;
+      String winnerplayer = game.checkwinner();
+      if(winnerplayer != ""){
+        gameover = true;
+        result = "$winnerplayer is the winner";
+      } else if(!gameover && turns == 9){
+        result = "it's a Draw";
+      }
     });
   }
 }
