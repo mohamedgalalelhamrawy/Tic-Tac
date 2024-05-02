@@ -46,10 +46,33 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             // 3
-                  Spacer(flex: 1,),
+            Expanded(
+                child: GridView.count(
+              crossAxisCount: 3,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              childAspectRatio: 1,
+              padding: const EdgeInsets.all(16),
+              children: List.generate(
+                  9,
+                  (index) => InkWell(
+                        onTap: gameover ? null : _ontap(index),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Theme.of(context).shadowColor,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Center(
+                            child: Text(
+                              "$activeplayer",
+                              style: TextStyle(color: Colors.blue , fontSize: 52),
+                            ),
+                          ),
+                        ),
+                      )),
+            )),
             // 4
             Text(
-             result,
+              result,
               style: const TextStyle(
                 fontSize: 42,
               ),
@@ -71,12 +94,22 @@ class _HomePageState extends State<HomePage> {
                     // result = '';
                     // turns = 0;
                   },
-                  icon: const Icon(Icons.replay,color: Colors.white,),
-                  label: const Text("Repeat The Game",style: TextStyle(color: Colors.white),)),
+                  icon: const Icon(
+                    Icons.replay,
+                    color: Colors.white,
+                  ),
+                  label: const Text(
+                    "Repeat The Game",
+                    style: TextStyle(color: Colors.white),
+                  )),
             )
           ],
         ),
       ),
     );
+  }
+
+  _ontap(int index) {
+    game.gameplay(index, activeplayer);
   }
 }
