@@ -124,10 +124,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _ontap(int index) {
+  _ontap(int index) async {
     if (!(player.playerX.contains(index) || player.playero.contains(index))) {
       game.playgame(index, activeplayer);
       UpdateState();
+      if (!iSswitch && !gameover) {
+       await game.autoplay(activeplayer);
+        UpdateState();
+      }
     }
   }
 
